@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 
+import './Input.scss';
+
 const Input = ({
   placeholder,
   buttonText,
+  onChange,
+  handleKeyPress,
   handleSubmit,
+  value
 }) => {
-  const [value, setValue] = useState('');
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' || event.keyCode === 13) {
-      setValue(event.target.value);
-    }
-  }
-
   return (
     <div data-testid='todo-input' className='Input'>
       <input
         type='text'
         placeholder={placeholder}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={onChange}
         onKeyPress={handleKeyPress}
         value={value}
         className='Input__Element'
