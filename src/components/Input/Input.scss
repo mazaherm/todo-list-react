@@ -1,0 +1,24 @@
+$module: 'Input';
+
+.#{$module} {
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+
+  &__Element {
+    border: none;
+    width: 100%;
+    outline: none;
+  }
+
+  &__Submit {
+    border: none;
+    background: #74b9ff;
+    width: 100px;
+    height: 30px;
+    color: #ffffff;
+  }
+}
