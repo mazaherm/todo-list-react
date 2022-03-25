@@ -1,0 +1,21 @@
+$module: 'Banner';
+
+.#{$module} {
+  position: relative;
+  margin-bottom: 50px;
+
+  &__Img {
+    height: 30vh;
+    min-height: 300px;
+    width: 100%;
+  }
+  &__Heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #f5f6fa;
+    font-size: 50px;
+  }
+}
