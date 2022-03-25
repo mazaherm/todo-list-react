@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import Input from './components/Input';
+import Header from './components/Header';
+
+import bannerImg from './assets/banner.jpg';
+
+import './App.scss';
 
 function App() {
   const [value, setValue] = useState('');
@@ -14,9 +19,10 @@ function App() {
 
   return (
     <>
-      <div>
-        Hello World
-      </div>
+      <Header
+        bgImage={bannerImg}
+        heading='Todo List'
+      />
       <Input
         placeholder='Enter a todo'
         buttonText='+ Add Todo'
