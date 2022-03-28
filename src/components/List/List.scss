@@ -1,0 +1,11 @@
+$module: 'List';
+
+.#{$module} {
+  padding: 0;
+
+  &__Empty {
+    text-align: center;
+    margin-top: 5%;
+    text-transform: capitalize;
+  }
+}
