@@ -10,6 +10,7 @@ import './App.scss';
 
 function App() {
   const [value, setValue] = useState('');
+  const [listItems, setListItems] = useState([]);
 
   const handleSubmit = (event) => setValue(event.target.value);
 
@@ -33,7 +34,10 @@ function App() {
         handleKeyPress={handleKeyPress}
         value={value}
       />
-      <List />
+      <List
+        listItems={listItems}
+        handleListIconClick={() => alert('hello')}
+      />
     </>
   );
 }
