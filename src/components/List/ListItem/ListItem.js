@@ -6,7 +6,7 @@ import './ListItem.scss';
 const ListItem = ({
   handleListIconClick,
   listItemText,
-  fontAwesomeIcon
+  fontAwesomeIcon,
 }) => {
   return (
     <div className='ListItem' >

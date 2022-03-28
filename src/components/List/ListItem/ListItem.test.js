@@ -14,12 +14,12 @@ const setup = (state = {}) => {
 
 describe('list item component', () => {
   it('renders without errors', () => {
-    const { listItem } = setup();
+    const { listItem } = setup({ fontAwesomeIcon: faTrashCan });
     expect(listItem).toBeInTheDocument();
   });
 
   it('renders list item text', () => {
-    const { getByText } = setup({ listItemText: 'this is a list item' })
+    const { getByText } = setup({ listItemText: 'this is a list item', fontAwesomeIcon: faTrashCan })
 
     expect(getByText(/this is a list item/i)).toBeInTheDocument();
   });
