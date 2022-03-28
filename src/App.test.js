@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders App', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Todo List/i);
+  const linkElement = screen.getByRole('banner');
   expect(linkElement).toBeInTheDocument();
 });
