@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import Input from './components/Input';
 import Header from './components/Header';
+import List from './components/List';
 
 import bannerImg from './assets/banner.jpg';
 
@@ -31,6 +33,7 @@ function App() {
         handleKeyPress={handleKeyPress}
         value={value}
       />
+      <List />
     </>
   );
 }
