@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Input from './components/Input';
 import Header from './components/Header';
@@ -12,12 +13,18 @@ function App() {
   const [value, setValue] = useState('');
   const [listItems, setListItems] = useState([]);
 
-  const handleSubmit = (event) => setValue(event.target.value);
+  const handleSubmit = (event) => {
+    setValue(event.target.value)
+    listItems.push({
+      todo: value,
+      id: uuidv4()
+    });
+    setListItems(listItems)
+  };
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' || event.keyCode === 13) {
-      setValue(event.target.value);
-    }
+  const handleListIconClick = (id) => {
+    const newItemsList =  listItems.filter(item => item.id !== id);
+    setListItems(newItemsList)
   }
 
   return (
@@ -31,12 +38,11 @@ function App() {
         buttonText='+ Add Todo'
         onChange={(event) => setValue(event.target.value)}
         handleSubmit={handleSubmit}
-        handleKeyPress={handleKeyPress}
         value={value}
       />
       <List
         listItems={listItems}
-        handleListIconClick={() => alert('hello')}
+        onRemove={handleListIconClick}
       />
     </>
   );

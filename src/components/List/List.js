@@ -7,7 +7,7 @@ import './List.scss';
 
 const List = ({
   listItems,
-  handleListIconClick
+  onRemove
 }) => {
   return (
     listItems.length ? (
@@ -17,7 +17,7 @@ const List = ({
             key={item.id}
             listItemText={item.todo}
             fontAwesomeIcon={faTrashCan}
-            handleListIconClick={handleListIconClick}
+            handleListIconClick={() => onRemove(item.id)}
           />
         ))}
       </ul>
