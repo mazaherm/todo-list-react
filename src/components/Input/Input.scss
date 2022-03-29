@@ -20,5 +20,9 @@ $module: 'Input';
     width: 100px;
     height: 30px;
     color: #ffffff;
+    cursor: pointer; 
+    &:hover {
+      background: #2d98da;
+    }
   }
 }
