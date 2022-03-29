@@ -15,10 +15,12 @@ function App() {
 
   const handleSubmit = (event) => {
     setValue(event.target.value)
-    listItems.push({
-      todo: value,
-      id: uuidv4()
-    });
+    if (value.length) {
+      listItems.push({
+        todo: value,
+        id: uuidv4()
+      });
+    }
     setListItems(listItems)
   };
 
