@@ -12,6 +12,7 @@ const ListItem = ({
     <div className='ListItem' >
       <li
         className='ListItem__Item'
+        data-testid='list-items'
       >
           {listItemText}
       </li>
