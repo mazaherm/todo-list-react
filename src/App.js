@@ -12,7 +12,21 @@ import bannerImg from './assets/banner.jpg';
 
 import './App.scss';
 
-function App() {
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import rootReducer from './slices'
+
+// TODO: need to export this into its own file
+const AppWrapper = () => {
+  const store = configureStore({ reducer: rootReducer });
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+}
+
+const App = () => {
   const dispatch = useDispatch();
   const { todos, loading, hasErrors } = useSelector(todosSelector);
 
@@ -62,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWrapper;
