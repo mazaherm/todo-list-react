@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+
+import { fetchTodos, todosSelector } from './slices/todos';
 
 import Input from './components/Input';
 import Header from './components/Header';
@@ -10,8 +13,17 @@ import bannerImg from './assets/banner.jpg';
 import './App.scss';
 
 function App() {
+  const dispatch = useDispatch();
+  const { todos, loading, hasErrors } = useSelector(todosSelector);
+
   const [value, setValue] = useState('');
   const [listItems, setListItems] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [dispatch])
+
+  console.log('todos', todos);
 
   const handleSubmit = (event) => {
     setValue(event.target.value)
