@@ -14,6 +14,7 @@ $module: 'Input';
   margin: 0 auto;
   display: flex;
   padding: 10px;
+  align-items: center;
 
   &__Element {
     border: none;
@@ -21,9 +22,17 @@ $module: 'Input';
     outline: none;
   }
 
+  &__XIcon {
+    color: #dcdde1;
+    cursor: pointer;
+    &:hover {
+      color: #b2bec3;
+    }
+  }
+
   &__Submit {
     @include buttonStyles;
-    width: 150px;
+    width: 180px;
     background: #74b9ff;
     color: #ffffff;
     &:hover {
@@ -34,7 +43,7 @@ $module: 'Input';
 
   &__Suggest {
     @include buttonStyles;
-    width: 150px;
+    width: 180px;
     background: #badc58;
     color: #30336b;
     &:hover {

@@ -52,6 +52,10 @@ const App = () => {
     setListItems(listItems)
   };
 
+  const handleXClick = () => {
+    setValue('');
+  }
+
   const handleListIconClick = (id) => {
     const newItemsList =  listItems.filter(item => item.id !== id);
     setListItems(newItemsList)
@@ -69,6 +73,7 @@ const App = () => {
         onChange={(event) => setValue(event.target.value)}
         handleSubmit={handleSubmit}
         handleSuggest={handleSuggest}
+        handleXClick={handleXClick}
         value={value}
       />
       <List

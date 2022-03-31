@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
 import './Input.scss';
 
@@ -9,6 +11,7 @@ const Input = ({
   handleKeyPress,
   handleSubmit,
   handleSuggest,
+  handleXClick,
   value
 }) => {
   return (
@@ -21,6 +24,11 @@ const Input = ({
         value={value}
         className='Input__Element'
       />
+      <FontAwesomeIcon
+        icon={faCircleXmark}
+        onClick={handleXClick}
+        className='Input__XIcon'
+      />
       <button
         type='button'
         onClick={handleSubmit}
@@ -29,6 +37,7 @@ const Input = ({
       >
         {buttonText}
       </button>
+      or
       <button
         type='button'
         onClick={handleSuggest}
