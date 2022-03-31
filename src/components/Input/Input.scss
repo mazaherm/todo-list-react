@@ -1,3 +1,10 @@
+@mixin buttonStyles {
+  border: none;
+  height: 30px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
 $module: 'Input';
 
 .#{$module} {
@@ -15,14 +22,24 @@ $module: 'Input';
   }
 
   &__Submit {
-    border: none;
+    @include buttonStyles;
+    width: 150px;
     background: #74b9ff;
-    width: 100px;
-    height: 30px;
     color: #ffffff;
-    cursor: pointer; 
     &:hover {
       background: #2d98da;
+      color: #30336b;
+    }
+  }
+
+  &__Suggest {
+    @include buttonStyles;
+    width: 150px;
+    background: #badc58;
+    color: #30336b;
+    &:hover {
+      background: #6ab04c;
+      color: #ffffff;
     }
   }
 }

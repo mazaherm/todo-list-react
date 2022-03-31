@@ -41,9 +41,11 @@ describe('the input box', () => {
 describe('the submit button', () => {
   it('renders the component without errors', () => {
     const utils = render(<Input />)
-    const button = utils.getByRole('button');
+    const submitButton = utils.getByTestId('submit-button');
+    const suggestButton = utils.getByTestId('suggest-button');
 
-    expect(button).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
+    expect(suggestButton).toBeInTheDocument();
   });
 
   it('calls onClick prop on button click', () => {

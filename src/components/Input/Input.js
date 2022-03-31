@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './Input.scss';
 
@@ -8,6 +8,7 @@ const Input = ({
   onChange,
   handleKeyPress,
   handleSubmit,
+  handleSuggest,
   value
 }) => {
   return (
@@ -24,8 +25,17 @@ const Input = ({
         type='button'
         onClick={handleSubmit}
         className='Input__Submit'
+        data-testid='submit-button'
       >
         {buttonText}
+      </button>
+      <button
+        type='button'
+        onClick={handleSuggest}
+        className='Input__Suggest'
+        data-testid='suggest-button'
+      >
+        + Suggest Todo
       </button>
     </div>
   )
