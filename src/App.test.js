@@ -3,7 +3,7 @@ import App from './App';
 
 const addTodo = (todos) => {
   const input = screen.getByPlaceholderText(/enter a todo/i);
-  const button = screen.getByRole('button', { buttonText: /add todo/i });
+  const button = screen.getByText(/add todo/i);
   todos.forEach(todo => {
     fireEvent.change(input, { target: { value: todo }});
     fireEvent.click(button);

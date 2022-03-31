@@ -28,7 +28,7 @@ const AppWrapper = () => {
 
 const App = () => {
   const dispatch = useDispatch();
-  const { todos, loading, hasErrors } = useSelector(todosSelector);
+  const { todos } = useSelector(todosSelector);
 
   const [value, setValue] = useState('');
   const [listItems, setListItems] = useState([]);
@@ -37,7 +37,9 @@ const App = () => {
     dispatch(fetchTodos())
   }, [dispatch])
 
-  console.log('todos', todos);
+  const handleSuggest = () => {
+    setValue(todos.activity)
+  }
 
   const handleSubmit = (event) => {
     setValue(event.target.value)
@@ -66,6 +68,7 @@ const App = () => {
         buttonText='+ Add Todo'
         onChange={(event) => setValue(event.target.value)}
         handleSubmit={handleSubmit}
+        handleSuggest={handleSuggest}
         value={value}
       />
       <List
