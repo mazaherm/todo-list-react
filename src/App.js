@@ -35,10 +35,11 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchTodos());
-  }, [dispatch, todos.activity]);
+  }, [dispatch]);
 
   const handleSuggest = () => {
     setValue(todos.activity);
+    dispatch(fetchTodos());
   };
 
   const handleSubmit = (event) => {
