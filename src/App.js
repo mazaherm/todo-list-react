@@ -37,6 +37,10 @@ const App = () => {
     dispatch(fetchTodos());
   }, [dispatch]);
 
+  useEffect(() => {
+    setListItems(JSON.parse(window.localStorage.getItem("listItems")));
+  }, []);
+
   const handleSuggest = () => {
     setValue(todos.activity);
     dispatch(fetchTodos());
@@ -50,14 +54,16 @@ const App = () => {
         id: uuidv4(),
       });
     }
+    window.localStorage.setItem("listItems", JSON.stringify(listItems));
   };
 
-  const handleXClick = () => {
+  const handleClearInput = () => {
     setValue("");
   };
 
-  const handleListIconClick = (id) => {
+  const handleRemoveItem = (id) => {
     const newItemsList = listItems.filter((item) => item.id !== id);
+    window.localStorage.setItem("listItems", JSON.stringify(newItemsList));
     setListItems(newItemsList);
   };
 
@@ -70,10 +76,10 @@ const App = () => {
         onChange={(event) => setValue(event.target.value)}
         handleSubmit={handleSubmit}
         handleSuggest={handleSuggest}
-        handleXClick={handleXClick}
+        handleXClick={handleClearInput}
         value={value}
       />
-      <List listItems={listItems} onRemove={handleListIconClick} />
+      <List listItems={listItems} onRemove={handleRemoveItem} />
     </>
   );
 };
