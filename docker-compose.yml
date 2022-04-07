@@ -1,9 +1,7 @@
 version: "3"
 services:
   react-app:
-    build: .
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./src:/app/src
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.dev
     
